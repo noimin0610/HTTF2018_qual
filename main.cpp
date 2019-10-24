@@ -54,9 +54,9 @@ inline void solve() {
                 for(int dx=0;dx<=h-dy;++dx) {
                     int hh = h - (dx+dy);
                     if(check_range(y+dy, x+dx)) b[y+dy][x+dx] += hh;
-                    if(check_range(y-dy, x+dx)) b[y-dy][x+dx] += hh;
-                    if(check_range(y+dy, x-dx)) b[y+dy][x-dx] += hh;
-                    if(check_range(y-dy, x-dx)) b[y-dy][x-dx] += hh;
+                    if(dy && check_range(y-dy, x+dx)) b[y-dy][x+dx] += hh;
+                    if(dx && check_range(y+dy, x-dx)) b[y+dy][x-dx] += hh;
+                    if(dy && dx && check_range(y-dy, x-dx)) b[y-dy][x-dx] += hh;
                 }
             }
             tmpans.emplace_back(y, x, h);
